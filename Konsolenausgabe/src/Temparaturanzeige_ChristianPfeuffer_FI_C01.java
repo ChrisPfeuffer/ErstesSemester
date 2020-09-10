@@ -1,4 +1,4 @@
-public class Aufgabe3 {
+public class Temparaturanzeige_ChristianPfeuffer_FI_C01 {
 	public static void main(String[] args) {
 		
 		System.out.printf("%-12s | %10s\n","Fahrenheit", "Celsius");
