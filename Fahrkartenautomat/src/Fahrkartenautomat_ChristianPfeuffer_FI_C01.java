@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class Fahrkartenautomat
+class Fahrkartenautomat_ChristianPfeuffer_FI_C01
 {
     public static void main(String[] args)
     {
