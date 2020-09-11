@@ -10,16 +10,21 @@ class Fahrkartenautomat
        double eingezahlterGesamtbetrag;
        double eingeworfeneMünze;
        double rückgabebetrag;
-
+       byte anzahlFahrkarte;
+       
        System.out.print("Zu zahlender Betrag (EURO): ");
        zuZahlenderBetrag = tastatur.nextDouble();
+
+       
+       System.out.print("Wieviel Fahrkarten wollen Sie? ");
+       anzahlFahrkarte = tastatur.nextByte();
 
        // Geldeinwurf
        // -----------
        eingezahlterGesamtbetrag = 0.0;
        while(eingezahlterGesamtbetrag < zuZahlenderBetrag)
        {
-    	   System.out.printf("Noch zu zahlen: %1.2f", zuZahlenderBetrag - eingezahlterGesamtbetrag);
+    	   System.out.printf("Noch zu zahlen: %1.2f €\n", zuZahlenderBetrag *anzahlFahrkarte - eingezahlterGesamtbetrag);
     	   System.out.print("Eingabe (mind. 5Ct, höchstens 2 Euro): ");
     	   eingeworfeneMünze = tastatur.nextDouble();
            eingezahlterGesamtbetrag += eingeworfeneMünze;
@@ -27,7 +32,7 @@ class Fahrkartenautomat
 
        // Fahrscheinausgabe
        // -----------------
-       System.out.println("\nFahrschein wird ausgegeben");
+       System.out.println("\nFahrschein/e wird ausgegeben");
        for (int i = 0; i < 8; i++)
        {
           System.out.print("=");
@@ -42,7 +47,7 @@ class Fahrkartenautomat
 
        // Rückgeldberechnung und -Ausgabe
        // -------------------------------
-       rückgabebetrag = eingezahlterGesamtbetrag - zuZahlenderBetrag;
+       rückgabebetrag = eingezahlterGesamtbetrag - zuZahlenderBetrag * anzahlFahrkarte;
        if(rückgabebetrag > 0.0)
        {
     	   System.out.printf("Der Rückgabebetrag in Höhe von %1.2f EURO\n", rückgabebetrag);
@@ -80,7 +85,7 @@ class Fahrkartenautomat
            }
        }
 
-       System.out.println("\nVergessen Sie nicht, den Fahrschein\n"+
+       System.out.println("\nVergessen Sie nicht, den/die Fahrschein/e\n"+
                           "vor Fahrtantritt entwerten zu lassen!\n"+
                           "Wir wünschen Ihnen eine gute Fahrt.");
     }
