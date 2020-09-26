@@ -22,7 +22,7 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
        // Geldeinwurf
        // -----------
        eingezahlterGesamtbetrag = 0.0;
-       while(eingezahlterGesamtbetrag < zuZahlenderBetrag)
+       while(eingezahlterGesamtbetrag < zuZahlenderBetrag *anzahlFahrkarte)
        {
     	   System.out.printf("Noch zu zahlen: %1.2f €\n", zuZahlenderBetrag *anzahlFahrkarte - eingezahlterGesamtbetrag);
     	   System.out.print("Eingabe (mind. 5Ct, höchstens 2 Euro): ");
@@ -48,7 +48,7 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
        // Rückgeldberechnung und -Ausgabe
        // -------------------------------
        rückgabebetrag = eingezahlterGesamtbetrag - zuZahlenderBetrag * anzahlFahrkarte;
-       if(rückgabebetrag > 0.0)
+       if(rückgabebetrag >= 0.0)
        {
     	   System.out.printf("Der Rückgabebetrag in Höhe von %1.2f EURO\n", rückgabebetrag);
     	   System.out.println("wird in folgenden Münzen ausgezahlt:");
