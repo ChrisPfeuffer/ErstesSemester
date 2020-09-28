@@ -22,7 +22,7 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
        // Geldeinwurf
        // -----------
        eingezahlterGesamtbetrag = 0.0;
-       while(eingezahlterGesamtbetrag < zuZahlenderBetrag *anzahlFahrkarte)
+       while(eingezahlterGesamtbetrag < zuZahlenderBetrag * anzahlFahrkarte)
        {
     	   System.out.printf("Noch zu zahlen: %1.2f €\n", zuZahlenderBetrag *anzahlFahrkarte - eingezahlterGesamtbetrag);
     	   System.out.print("Eingabe (mind. 5Ct, höchstens 2 Euro): ");
