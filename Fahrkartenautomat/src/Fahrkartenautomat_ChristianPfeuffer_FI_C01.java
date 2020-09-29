@@ -46,11 +46,12 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
        System.out.println("\n\n");
 
        // Rückgeldberechnung und -Ausgabe
-       // -------------------------------
+       // ----------------------
+       
        rückgabebetrag = eingezahlterGesamtbetrag - zuZahlenderBetrag * anzahlFahrkarte;
        if(rückgabebetrag >= 0.0)
        {
-    	   System.out.printf("Der Rückgabebetrag in Höhe von %1.2f EURO\n", rückgabebetrag);
+    	   System.out.printf("Der Rückgabebetrag in Höhe von %.2f EURO\n", rückgabebetrag);
     	   System.out.println("wird in folgenden Münzen ausgezahlt:");
 
            while(rückgabebetrag >= 2.00) // 2 EURO-Münzen
