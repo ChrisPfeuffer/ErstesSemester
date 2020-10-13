@@ -32,7 +32,7 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
 	       }
 	}
 	
-	public static void fahrkartenAusgeben(Scanner tastatur) {
+	public static void fahrkartenAusgeben() {
 	       System.out.println("\nFahrschein/e wird ausgegeben");
 	       for (int i = 0; i < 8; i++)
 	       {
@@ -98,7 +98,7 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
        fahrkartenBezahlen(tastatur);
        
        // Fahrscheinausgabe  
-       fahrkartenAusgeben(tastatur);
+       fahrkartenAusgeben();
 
        // Rückgeldberechnung und -Ausgabe
        rueckgeldAusgeben();
