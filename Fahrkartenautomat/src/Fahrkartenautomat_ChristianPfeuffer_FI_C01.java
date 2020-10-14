@@ -11,21 +11,31 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
     
 	
 	public static double fahrkartenbestellungErfassen(double kosten, byte anzahl){
+		
 		System.out.print("Zu zahlender Betrag (EURO): ");
 	    double p1 = tastatur.nextDouble();
        
 	    System.out.print("Wieviel Fahrkarten wollen Sie? ");
 	    byte p2 = tastatur.nextByte();
-	    if (p2 <= 10 && p2 > 0) {
-	    	double gesamtKosten = p1 * p2;
-	    	return gesamtKosten;
+
+	    while (p2 > 10 || p2 <= 0) {
+	    	System.out.print("Sie können sich nur maximal 10 Karten kaufen. "
+	    			+ "Eine Karte ist Minimum! \n\nVerschwende nicht meine Zeit");
+	    	for (int i = 0; i < 20; i++)
+		       {
+		          System.out.print(".");
+		          try {			Thread.sleep(200);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+		       }
+		       System.out.println("\n\n");
+	    	System.out.print("Wieviel Fahrkarten wollen Sie?");
+	    	p2 = tastatur.nextByte();
 	    }
-	    else {
-	    	System.out.println("Wenn ich Sie richtig verstanden habe, wollen Sie also eine Karte?!");
-	    	double gesamtKosten = p1 * 1;
-	    	return gesamtKosten;
-	    	
-	    }
+
+	    double gesamtKosten = p1 * p2;
+    	return gesamtKosten;
 	}
 	
 	public static void fahrkartenBezahlen(Scanner tastatur) {
