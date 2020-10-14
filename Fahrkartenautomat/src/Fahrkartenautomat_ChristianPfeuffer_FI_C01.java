@@ -16,9 +16,16 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
        
 	    System.out.print("Wieviel Fahrkarten wollen Sie? ");
 	    byte p2 = tastatur.nextByte();
-	    
-	    double gesamtKosten = p1 * p2;
-	    return gesamtKosten;
+	    if (p2 <= 10 && p2 > 0) {
+	    	double gesamtKosten = p1 * p2;
+	    	return gesamtKosten;
+	    }
+	    else {
+	    	System.out.println("Wenn ich Sie richtig verstanden habe, wollen Sie also eine Karte?!");
+	    	double gesamtKosten = p1 * 1;
+	    	return gesamtKosten;
+	    	
+	    }
 	}
 	
 	public static void fahrkartenBezahlen(Scanner tastatur) {
@@ -32,12 +39,12 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
 	       }
 	}
 	
-	public static void fahrkartenAusgeben() {
+	public static void warte(int millisekunde) {
 	       System.out.println("\nFahrschein/e wird ausgegeben");
-	       for (int i = 0; i < 8; i++)
+	       for (int i = 0; i < millisekunde; i++)
 	       {
 	          System.out.print("=");
-	          try {			Thread.sleep(250);
+	          try {			Thread.sleep(200);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -45,8 +52,8 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
 	       System.out.println("\n\n");
 	}
 	
-	public static void rueckgeldAusgeben() {
-		rückgabebetrag = bGesamt - gesamtKosten + 0.001;
+	public static void muenzeAusgeben() {
+		rückgabebetrag = bGesamt - gesamtKosten + 0.001; //Sonst wird falsch gerundet
 		if(rückgabebetrag > 0.0)
 		{
 			System.out.printf("Der Rückgabebetrag in Höhe von %.2f EURO\n", rückgabebetrag);
@@ -98,9 +105,9 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
        fahrkartenBezahlen(tastatur);
        
        // Fahrscheinausgabe  
-       fahrkartenAusgeben();
+       warte(10);
 
        // Rückgeldberechnung und -Ausgabe
-       rueckgeldAusgeben();
+       muenzeAusgeben();
     }
 }
