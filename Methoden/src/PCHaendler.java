@@ -26,8 +26,8 @@ public class PCHaendler {
 		return nettogesamtpreis;
 	}
 	public static double berechneGesamtbruttopreis(double nettogesamtpreis, double mwst) {
-	double bruttogesamtpreis = nettogesamtpreis * (1 + mwst / 100);
-	return bruttogesamtpreis;
+		double bruttogesamtpreis = nettogesamtpreis * (1 + mwst / 100);
+		return bruttogesamtpreis;
 	}
 	public static void rechnungausgeben(String artikel, int anzahl, double nettogesamtpreis, double bruttogesamtpreis, double mwst) {
 		System.out.println("\tRechnung");
