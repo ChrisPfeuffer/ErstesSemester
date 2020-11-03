@@ -21,7 +21,6 @@ public class PCHaendler {
 		return wert;
 	}
 	public static double berechneGesamtnettopreis(int anzahl, double preis) {
-		// Verarbeiten
 		double nettogesamtpreis = anzahl * preis;
 		return nettogesamtpreis;
 	}
