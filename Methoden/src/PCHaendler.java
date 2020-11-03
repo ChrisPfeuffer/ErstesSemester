@@ -37,9 +37,9 @@ public class PCHaendler {
 	public static void main(String[] args) {
 		
 		String artikel = liesString("Was moechten Sie bestellen?");
+		int anzahl = liesInt("Geben Sie die Anzahl ein:");
 		double mwst = liesDouble("Geben Sie den Mehrwertsteuersatz in Prozent ein:");
 		double preis = liesDouble("Geben Sie den Nettopreis ein:");
-		int anzahl = liesInt("Geben Sie die Anzahl ein:");
 		double nettogesamtpreis = berechneGesamtnettopreis(anzahl, preis);
 		double bruttogesamtpreis = berechneGesamtbruttopreis(nettogesamtpreis, mwst);
 		rechnungausgeben(artikel, anzahl, nettogesamtpreis, bruttogesamtpreis, mwst);
