@@ -10,7 +10,7 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
     static byte anzahlFahrkarte = 0;
     
 	
-	public static double fahrkartenbestellungErfassen(double kosten, byte anzahl){
+	public static double fahrkartenbestellungErfassen(){
 		
 		System.out.print("Zu zahlender Betrag (EURO): ");
 	    double p1 = tastatur.nextDouble();
@@ -109,7 +109,7 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
     {
    
        //Bestellung
-       gesamtKosten = fahrkartenbestellungErfassen(zuZahlenderBetrag, anzahlFahrkarte);
+       gesamtKosten = fahrkartenbestellungErfassen();
        
        // Geldeinwurf
        fahrkartenBezahlen(tastatur);
