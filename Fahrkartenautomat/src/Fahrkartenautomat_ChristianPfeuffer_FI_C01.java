@@ -63,7 +63,7 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
 	}
 	
 	public static void muenzeAusgeben() {
-		rückgabebetrag = bGesamt - gesamtKosten + 0.001; //Sonst wird falsch gerundet
+		rückgabebetrag = bGesamt - gesamtKosten + 0.0001; //Math round soll helfen
 		if(rückgabebetrag > 0.0)
 		{
 			System.out.printf("Der Rückgabebetrag in Höhe von %.2f EURO\n", rückgabebetrag);
