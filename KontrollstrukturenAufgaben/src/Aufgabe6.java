@@ -46,9 +46,6 @@ public class Aufgabe6 {
 		double kg = koerpermaﬂ("Wie schwer bist du in kg?");
 		double meter = koerpermaﬂ("Wie groﬂ bist du in Meter?");
 		char sex = geschlecht("Bist du m‰nnlich oder weiblich. Antworte mit 'm' oder 'w'.");
-		berechnungBMI(kg, meter, sex);
-		
-		
+		berechnungBMI(kg, meter, sex);	
 	}
-
 }
