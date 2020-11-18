@@ -31,20 +31,21 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
     	return gesamtKosten;
 	}
 	
-	public static double fahrkartenBezahlen(Scanner tastatur, double gesamtKosten) {
-		   double bGesamt = 0;
+	public static double fahrkartenBezahlen(double zuZahlen) {
+		   Scanner tastatur = new Scanner(System.in);
+		   double rückgabeBetrag = 0;
 	       double eingeworfeneMünze = 0;
-	       while(bGesamt < gesamtKosten)
+	       while(rückgabeBetrag < zuZahlen)
 	       {
-	    	   System.out.printf("Noch zu zahlen: %1.2f €\n", gesamtKosten - bGesamt);
+	    	   System.out.printf("Noch zu zahlen: %1.2f €\n", zuZahlen - rückgabeBetrag);
 	    	   System.out.print("Eingabe (mind. 5Ct, höchstens 2 Euro): ");
 	    	   eingeworfeneMünze = tastatur.nextDouble();
-	           bGesamt += eingeworfeneMünze;
+	           rückgabeBetrag += eingeworfeneMünze;
 	       }
-	       return bGesamt;
+	       return rückgabeBetrag;
 	}
 	
-	public static void warte(int millisekunde) {
+	public static void fahrkartenAusgeben(int millisekunde) {
 	       System.out.println("\nFahrschein/e wird ausgegeben");
 	       for (int i = 0; i < millisekunde; i++)
 	       {
@@ -108,17 +109,16 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
 	}
     public static void main(String[] args)
     {
- 	   Scanner tastatur = new Scanner(System.in);
-   
+  
        //Bestellung
        double gesamtKosten = fahrkartenbestellungErfassen();
        
        // Geldeinwurf
 
-       double betragEinbezahlt = fahrkartenBezahlen(tastatur, gesamtKosten);
+       double betragEinbezahlt = fahrkartenBezahlen(gesamtKosten);
        
        // Fahrscheinausgabe  
-       warte(10);
+       fahrkartenAusgeben(10);
 
        // Rückgeldberechnung und -Ausgabe
        muenzeAusgeben(gesamtKosten, betragEinbezahlt);
