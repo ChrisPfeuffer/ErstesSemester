@@ -32,30 +32,33 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
 	}
 	
 	public static double fahrkartenBezahlen(double zuZahlen) {
-		   Scanner tastatur = new Scanner(System.in);
-		   double rückgabeBetrag = 0;
-	       double eingeworfeneMünze = 0;
-	       while(rückgabeBetrag < zuZahlen)
-	       {
-	    	   System.out.printf("Noch zu zahlen: %1.2f €\n", zuZahlen - rückgabeBetrag);
-	    	   System.out.print("Eingabe (mind. 5Ct, höchstens 2 Euro): ");
-	    	   eingeworfeneMünze = tastatur.nextDouble();
-	           rückgabeBetrag += eingeworfeneMünze;
-	       }
-	       return rückgabeBetrag;
+		Scanner tastatur = new Scanner(System.in);
+		double rückgabeBetrag = 0;
+		double eingeworfeneMünze = 0;
+		while(rückgabeBetrag < zuZahlen)
+		{
+			System.out.printf("Noch zu zahlen: %1.2f €\n", zuZahlen - rückgabeBetrag);
+			System.out.print("Eingabe (mind. 5Ct, höchstens 2 Euro): ");
+			eingeworfeneMünze = tastatur.nextDouble();
+			rückgabeBetrag += eingeworfeneMünze;
+		}
+		return rückgabeBetrag;
 	}
 	
-	public static void fahrkartenAusgeben(int millisekunde) {
-	       System.out.println("\nFahrschein/e wird ausgegeben");
-	       for (int i = 0; i < millisekunde; i++)
-	       {
-	          System.out.print("=");
-	          try {			Thread.sleep(200);
+	public static void fahrkartenAusgeben() {
+		System.out.println("\nFahrschein/e wird ausgegeben");
+	}
+	
+	public static void warte (int millisekunde) {
+		for (int i = 0; i < millisekunde; i++)
+		{
+			System.out.print("=");
+			try {Thread.sleep(200);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-	       }
-	       System.out.println("\n\n");
+		}
+		System.out.println("\n\n");
 	}
 	
 	public static void muenzeAusgeben(double gesamtKosten, double bGesamt) {
@@ -110,17 +113,19 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
     public static void main(String[] args)
     {
   
-       //Bestellung
-       double gesamtKosten = fahrkartenbestellungErfassen();
+    	// Bestellung
+    	double gesamtKosten = fahrkartenbestellungErfassen();
        
-       // Geldeinwurf
+    	// Geldeinwurf
+    	double betragEinbezahlt = fahrkartenBezahlen(gesamtKosten);
+    	
+    	// Fahrscheinausgabe 
+    	fahrkartenAusgeben();
+    	
+    	// Warteschleife erstellen
+    	warte(10);
 
-       double betragEinbezahlt = fahrkartenBezahlen(gesamtKosten);
-       
-       // Fahrscheinausgabe  
-       fahrkartenAusgeben(10);
-
-       // Rückgeldberechnung und -Ausgabe
-       muenzeAusgeben(gesamtKosten, betragEinbezahlt);
+    	// Rückgeldberechnung und -Ausgabe
+    	muenzeAusgeben(gesamtKosten, betragEinbezahlt);
     }
 }
