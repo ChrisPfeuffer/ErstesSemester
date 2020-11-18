@@ -16,7 +16,7 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
 	    	for (int i = 0; i < 20; i++)
 		       {
 		          System.out.print(".");
-		          try {			Thread.sleep(200);
+		          try {Thread.sleep(200);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
