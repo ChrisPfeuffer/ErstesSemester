@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 class Fahrkartenautomat_ChristianPfeuffer_FI_C01
 {
-	
 	public static double fahrkartenbestellungErfassen(){
 		Scanner tastatur = new Scanner(System.in);
 		System.out.print("Zu zahlender Betrag (EURO): ");
@@ -61,48 +60,52 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
 		System.out.println("\n\n");
 	}
 	
-	public static void rueckgeldAusgeben(double gesamtKosten, double bGesamt) {
-		double rückgabebetrag = bGesamt - gesamtKosten; //Math round soll helfen
+	public static void muenzenAusgeben(int betrag, String einheit) {
+        System.out.println(betrag + einheit);
+    }
+	
+	public static void rueckgeldAusgeben(double gesamtKosten, double eingezahlt) {
+		double rueckgabebetrag = eingezahlt - gesamtKosten; //Math round soll helfen
 		
-		if(rückgabebetrag > 0.0)
+		if(rueckgabebetrag > 0.0)
 		{
-			System.out.printf("Der Rückgabebetrag in Höhe von %.2f EURO\n", rückgabebetrag);
+			System.out.printf("Der Rückgabebetrag in Höhe von %.2f EURO\n", rueckgabebetrag);
 			System.out.println("wird in folgenden Münzen ausgezahlt:");
-			while(rückgabebetrag >= 2.00) // 2 EURO-Münzen
+			while(rueckgabebetrag >= 2.00) // 2 EURO-Münzen
 			{
-				System.out.println("2 EURO");
-				rückgabebetrag -= 2.00;
-				rückgabebetrag = Math.round(100.0* rückgabebetrag) / 100.0;
+				muenzenAusgeben(2, "€");
+				rueckgabebetrag -= 2.00;
+		        rueckgabebetrag = Math.round(rueckgabebetrag * 100.0) / 100.0;
 			}
-			while(rückgabebetrag >= 1.00) // 1 EURO-Münzen
+			while(rueckgabebetrag >= 1.00) // 1 EURO-Münzen
 			{
-				System.out.println("1 EURO");
-				rückgabebetrag -= 1.00;
-				rückgabebetrag = Math.round(100.0* rückgabebetrag) / 100.0;
+				muenzenAusgeben(1, "€");
+				rueckgabebetrag -= 1.00;
+		        rueckgabebetrag = Math.round(rueckgabebetrag * 100.0) / 100.0;
 			}
-			while(rückgabebetrag >= 0.50) // 50 CENT-Münzen
+			while(rueckgabebetrag >= 0.50) // 50 CENT-Münzen
 			{
-				System.out.println("50 CENT");
-				rückgabebetrag -= 0.50;
-				rückgabebetrag = Math.round(100.0* rückgabebetrag) / 100.0;
+				muenzenAusgeben(50, "¢");
+				rueckgabebetrag -= 0.50;
+		        rueckgabebetrag = Math.round(rueckgabebetrag * 100.0) / 100.0;
 			}
-			while(rückgabebetrag >= 0.20) // 20 CENT-Münzen
+			while(rueckgabebetrag >= 0.20) // 20 CENT-Münzen
 			{
-				System.out.println("20 CENT");
-				rückgabebetrag -= 0.20;
-				rückgabebetrag = Math.round(100.0* rückgabebetrag) / 100.0;
+				muenzenAusgeben(20, "¢");
+				rueckgabebetrag -= 0.20;
+		        rueckgabebetrag = Math.round(rueckgabebetrag * 100.0) / 100.0;
 			}
-			while(rückgabebetrag >= 0.10) // 10 CENT-Münzen
+			while(rueckgabebetrag >= 0.10) // 10 CENT-Münzen
 			{
-				System.out.println("10 CENT");
-				rückgabebetrag -= 0.10;
-				rückgabebetrag = Math.round(100.0* rückgabebetrag) / 100.0;
+				muenzenAusgeben(10, "¢");
+				rueckgabebetrag -= 0.10;
+		        rueckgabebetrag = Math.round(rueckgabebetrag * 100.0) / 100.0;
 			}
-			while(rückgabebetrag >= 0.05)// 5 CENT-Münzen
+			while(rueckgabebetrag >= 0.05)// 5 CENT-Münzen
 			{
-				System.out.println("5 CENT");
-				rückgabebetrag -= 0.05;
-				rückgabebetrag = Math.round(100.0* rückgabebetrag) / 100.0;
+				muenzenAusgeben(5, "¢");
+				rueckgabebetrag -= 0.05;
+		        rueckgabebetrag = Math.round(rueckgabebetrag * 100.0) / 100.0;
 			}
 		}
 
@@ -110,14 +113,17 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
 							"vor Fahrtantritt entwerten zu lassen!\n"+
                        		"Wir wünschen Ihnen eine gute Fahrt.");
 	}
+	
+	
+	
     public static void main(String[] args)
     {
   
     	// Bestellung
-    	double gesamtKosten = fahrkartenbestellungErfassen();
+    	double zuzahlendenBetrag = fahrkartenbestellungErfassen();
        
     	// Geldeinwurf
-    	double betragEinbezahlt = fahrkartenBezahlen(gesamtKosten);
+    	double betragEinbezahlt = fahrkartenBezahlen(zuzahlendenBetrag);
     	
     	// Fahrscheinausgabe 
     	fahrkartenAusgeben();
@@ -126,6 +132,6 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
     	warte(10);
 
     	// Rückgeldberechnung und -Ausgabe
-    	rueckgeldAusgeben(gesamtKosten, betragEinbezahlt);
+    	rueckgeldAusgeben(zuzahlendenBetrag, betragEinbezahlt);
     }
 }
