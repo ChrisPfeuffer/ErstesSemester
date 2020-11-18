@@ -2,16 +2,9 @@ import java.util.Scanner;
 
 class Fahrkartenautomat_ChristianPfeuffer_FI_C01
 {
-	static Scanner tastatur = new Scanner(System.in);
-	static double gesamtKosten;
-	static double bGesamt;
-	static double rückgabebetrag;
-    static double zuZahlenderBetrag = 0; 
-    static byte anzahlFahrkarte = 0;
-    
 	
 	public static double fahrkartenbestellungErfassen(){
-		
+		Scanner tastatur = new Scanner(System.in);
 		System.out.print("Zu zahlender Betrag (EURO): ");
 	    double p1 = tastatur.nextDouble();
        
@@ -38,7 +31,8 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
     	return gesamtKosten;
 	}
 	
-	public static void fahrkartenBezahlen(Scanner tastatur) {
+	public static double fahrkartenBezahlen(Scanner tastatur, double gesamtKosten) {
+		   double bGesamt = 0;
 	       double eingeworfeneMünze = 0;
 	       while(bGesamt < gesamtKosten)
 	       {
@@ -47,6 +41,7 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
 	    	   eingeworfeneMünze = tastatur.nextDouble();
 	           bGesamt += eingeworfeneMünze;
 	       }
+	       return bGesamt;
 	}
 	
 	public static void warte(int millisekunde) {
@@ -62,8 +57,8 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
 	       System.out.println("\n\n");
 	}
 	
-	public static void muenzeAusgeben() {
-		rückgabebetrag = bGesamt - gesamtKosten + 0.0001; //Math round soll helfen
+	public static void muenzeAusgeben(double gesamtKosten, double bGesamt) {
+		double rückgabebetrag = bGesamt - gesamtKosten + 0.0001; //Math round soll helfen
 		if(rückgabebetrag > 0.0)
 		{
 			System.out.printf("Der Rückgabebetrag in Höhe von %.2f EURO\n", rückgabebetrag);
@@ -107,17 +102,19 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
 	}
     public static void main(String[] args)
     {
+ 	   Scanner tastatur = new Scanner(System.in);
    
        //Bestellung
-       gesamtKosten = fahrkartenbestellungErfassen();
+       double gesamtKosten = fahrkartenbestellungErfassen();
        
        // Geldeinwurf
-       fahrkartenBezahlen(tastatur);
+
+       double betragEinbezahlt = fahrkartenBezahlen(tastatur, gesamtKosten);
        
        // Fahrscheinausgabe  
        warte(10);
 
        // Rückgeldberechnung und -Ausgabe
-       muenzeAusgeben();
+       muenzeAusgeben(gesamtKosten, betragEinbezahlt);
     }
 }
