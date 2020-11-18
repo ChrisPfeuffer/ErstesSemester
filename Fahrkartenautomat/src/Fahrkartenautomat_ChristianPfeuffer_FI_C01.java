@@ -61,7 +61,7 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
 		System.out.println("\n\n");
 	}
 	
-	public static void muenzeAusgeben(double gesamtKosten, double bGesamt) {
+	public static void rueckgeldAusgeben(double gesamtKosten, double bGesamt) {
 		double rückgabebetrag = bGesamt - gesamtKosten; //Math round soll helfen
 		
 		if(rückgabebetrag > 0.0)
@@ -126,6 +126,6 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
     	warte(10);
 
     	// Rückgeldberechnung und -Ausgabe
-    	muenzeAusgeben(gesamtKosten, betragEinbezahlt);
+    	rueckgeldAusgeben(gesamtKosten, betragEinbezahlt);
     }
 }
