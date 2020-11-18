@@ -112,26 +112,38 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
 		System.out.println("\nVergessen Sie nicht, den/die Fahrschein/e\n"+
 							"vor Fahrtantritt entwerten zu lassen!\n"+
                        		"Wir wünschen Ihnen eine gute Fahrt.");
+		for (int i = 0; i < 30; i++)
+		{
+			System.out.print("-");
+			try {Thread.sleep(300);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		System.out.println("\n\n");
 	}
 	
 	
 	
     public static void main(String[] args)
     {
-  
-    	// Bestellung
-    	double zuzahlendenBetrag = fahrkartenbestellungErfassen();
-       
-    	// Geldeinwurf
-    	double betragEinbezahlt = fahrkartenBezahlen(zuzahlendenBetrag);
-    	
-    	// Fahrscheinausgabe 
-    	fahrkartenAusgeben();
-    	
-    	// Warteschleife erstellen
-    	warte(10);
-
-    	// Rückgeldberechnung und -Ausgabe
-    	rueckgeldAusgeben(zuzahlendenBetrag, betragEinbezahlt);
+    	while(true) {
+	    	// Bestellung
+	    	double zuzahlendenBetrag = fahrkartenbestellungErfassen();
+	       
+	    	// Geldeinwurf
+	    	double betragEinbezahlt = fahrkartenBezahlen(zuzahlendenBetrag);
+	    	
+	    	// Fahrscheinausgabe 
+	    	fahrkartenAusgeben();
+	    	
+	    	// Warteschleife erstellen
+	    	warte(10);
+	
+	    	// Rückgeldberechnung und -Ausgabe
+	    	rueckgeldAusgeben(zuzahlendenBetrag, betragEinbezahlt);
+	    	
+	    	System.out.println("Guten Tag Werter Kunde. Ihre Bestellung bitte. \n");
+	    }
     }
 }
