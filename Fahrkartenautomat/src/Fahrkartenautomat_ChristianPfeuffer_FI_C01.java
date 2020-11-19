@@ -13,27 +13,38 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
 		double einzelfahrschein = 2.90;
 		double tageskarte = 8.60;
 		double kleingruppe = 23.50;
-		System.out.print(fahrpreise);
-		System.out.print("Ihre Wahl: ");
-		byte eingabeFahrkarten = tastatur.nextByte();
-		System.out.print("Anzahl Tickets: ");
-		byte anzahlFahrkarten = tastatur.nextByte();
+		byte eingabeFahrkarten = 0;
+		byte anzahlFahrkarten = 0;
+		
+	    System.out.print(fahrpreise);
+	    System.out.print("Ihre Wahl: ");
+		eingabeFahrkarten = tastatur.nextByte();
+		if(eingabeFahrkarten != 9) {
+			System.out.print("Anzahl Tickets: ");
+			anzahlFahrkarten = tastatur.nextByte();
+		}
 		
 		if(eingabeFahrkarten == 1 && anzahlFahrkarten <= 10 && anzahlFahrkarten > 0) {
 		    neukosten = einzelfahrschein * anzahlFahrkarten;
 		    System.out.print(fahrpreise);
 		    System.out.print("Ihre Wahl: ");
 			eingabeFahrkarten = tastatur.nextByte();
-			System.out.print("Anzahl Tickets: ");
-			anzahlFahrkarten = tastatur.nextByte();
+			if(eingabeFahrkarten != 9) {
+				System.out.print("Anzahl Tickets: ");
+				anzahlFahrkarten = tastatur.nextByte();
+				return neukosten;
+			}
 			
 		    if (eingabeFahrkarten == 2 && anzahlFahrkarten <= 10 && anzahlFahrkarten > 0) {
 		    	neukosten = neukosten + tageskarte * anzahlFahrkarten;
 		    	System.out.print(fahrpreise);
-		    	System.out.print("Ihre Wahl: ");
+			    System.out.print("Ihre Wahl: ");
 				eingabeFahrkarten = tastatur.nextByte();
-				System.out.print("Anzahl Tickets: ");
-				anzahlFahrkarten = tastatur.nextByte();
+				if(eingabeFahrkarten != 9) {
+					System.out.print("Anzahl Tickets: ");
+					anzahlFahrkarten = tastatur.nextByte();
+					return neukosten;
+				}
 					
 				if (eingabeFahrkarten == 3 && anzahlFahrkarten <= 10 && anzahlFahrkarten > 0) {
 					neukosten = neukosten + kleingruppe * anzahlFahrkarten;
@@ -50,10 +61,13 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
 		    else if(eingabeFahrkarten == 3 && anzahlFahrkarten <= 10 && anzahlFahrkarten > 0) {
 		    	neukosten = neukosten + kleingruppe * anzahlFahrkarten;
 		    	System.out.print(fahrpreise);
-		    	System.out.print("Ihre Wahl: ");
+			    System.out.print("Ihre Wahl: ");
 				eingabeFahrkarten = tastatur.nextByte();
-				System.out.print("Anzahl Tickets: ");
-				anzahlFahrkarten = tastatur.nextByte();
+				if(eingabeFahrkarten != 9) {
+					System.out.print("Anzahl Tickets: ");
+					anzahlFahrkarten = tastatur.nextByte();
+					return neukosten;
+				}
 				
 				if (eingabeFahrkarten == 2 && anzahlFahrkarten <= 10 && anzahlFahrkarten > 0) {
 					neukosten = neukosten + tageskarte * anzahlFahrkarten;
@@ -81,16 +95,22 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
 		    System.out.print(fahrpreise);
 		    System.out.print("Ihre Wahl: ");
 			eingabeFahrkarten = tastatur.nextByte();
-			System.out.print("Anzahl Tickets: ");
-			anzahlFahrkarten = tastatur.nextByte();
+			if(eingabeFahrkarten != 9) {
+				System.out.print("Anzahl Tickets: ");
+				anzahlFahrkarten = tastatur.nextByte();
+				return neukosten;
+			}
 			
 		    if (eingabeFahrkarten == 1 && anzahlFahrkarten <= 10 && anzahlFahrkarten > 0) {
 		    	neukosten = neukosten + einzelfahrschein * anzahlFahrkarten;
 		    	System.out.print(fahrpreise);
-		    	System.out.print("Ihre Wahl: ");
+			    System.out.print("Ihre Wahl: ");
 				eingabeFahrkarten = tastatur.nextByte();
-				System.out.print("Anzahl Tickets: ");
-				anzahlFahrkarten = tastatur.nextByte();
+				if(eingabeFahrkarten != 9) {
+					System.out.print("Anzahl Tickets: ");
+					anzahlFahrkarten = tastatur.nextByte();
+					return neukosten;
+				}
 					
 				if (eingabeFahrkarten == 3 && anzahlFahrkarten <= 10 && anzahlFahrkarten > 0) {
 					neukosten = neukosten + kleingruppe * anzahlFahrkarten;
@@ -107,10 +127,13 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
 		    else if(eingabeFahrkarten == 3 && anzahlFahrkarten <= 10 && anzahlFahrkarten > 0) {
 		    	neukosten = neukosten + kleingruppe * anzahlFahrkarten;
 		    	System.out.print(fahrpreise);
-		    	System.out.print("Ihre Wahl: ");
+			    System.out.print("Ihre Wahl: ");
 				eingabeFahrkarten = tastatur.nextByte();
-				System.out.print("Anzahl Tickets: ");
-				anzahlFahrkarten = tastatur.nextByte();
+				if(eingabeFahrkarten != 9) {
+					System.out.print("Anzahl Tickets: ");
+					anzahlFahrkarten = tastatur.nextByte();
+					return neukosten;
+				}
 				
 				if (eingabeFahrkarten == 1 && anzahlFahrkarten <= 10 && anzahlFahrkarten > 0) {
 					neukosten = neukosten + einzelfahrschein * anzahlFahrkarten;
@@ -137,16 +160,22 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
 		    System.out.print(fahrpreise);
 		    System.out.print("Ihre Wahl: ");
 			eingabeFahrkarten = tastatur.nextByte();
-			System.out.print("Anzahl Tickets: ");
-			anzahlFahrkarten = tastatur.nextByte();
+			if(eingabeFahrkarten != 9) {
+				System.out.print("Anzahl Tickets: ");
+				anzahlFahrkarten = tastatur.nextByte();
+				return neukosten;
+			}
 			
 		    if (eingabeFahrkarten == 1 && anzahlFahrkarten <= 10 && anzahlFahrkarten > 0) {
 		    	neukosten = neukosten + einzelfahrschein * anzahlFahrkarten;
 		    	System.out.print(fahrpreise);
-		    	System.out.print("Ihre Wahl: ");
+			    System.out.print("Ihre Wahl: ");
 				eingabeFahrkarten = tastatur.nextByte();
-				System.out.print("Anzahl Tickets: ");
-				anzahlFahrkarten = tastatur.nextByte();
+				if(eingabeFahrkarten != 9) {
+					System.out.print("Anzahl Tickets: ");
+					anzahlFahrkarten = tastatur.nextByte();
+					return neukosten;
+				}
 					
 				if (eingabeFahrkarten == 2 && anzahlFahrkarten <= 10 && anzahlFahrkarten > 0) {
 					neukosten = neukosten + tageskarte * anzahlFahrkarten;
@@ -163,10 +192,13 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
 		    else if(eingabeFahrkarten == 2 && anzahlFahrkarten <= 10 && anzahlFahrkarten > 0) {
 		    	neukosten = neukosten + tageskarte * anzahlFahrkarten;
 		    	System.out.print(fahrpreise);
-		    	System.out.print("Ihre Wahl: ");
+			    System.out.print("Ihre Wahl: ");
 				eingabeFahrkarten = tastatur.nextByte();
-				System.out.print("Anzahl Tickets: ");
-				anzahlFahrkarten = tastatur.nextByte();
+				if(eingabeFahrkarten != 9) {
+					System.out.print("Anzahl Tickets: ");
+					anzahlFahrkarten = tastatur.nextByte();
+					return neukosten;
+				}
 				
 				if (eingabeFahrkarten == 1 && anzahlFahrkarten <= 10 && anzahlFahrkarten > 0) {
 					neukosten = neukosten + einzelfahrschein * anzahlFahrkarten;
@@ -196,45 +228,6 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
 			return neukosten;
 		}   
 		
-		
-		
-		
-//		do {
-//			System.out.println(fahrpreise);
-//			
-//			System.out.print("Ihre Wahl: ");
-//		    int eingabeFahrkarten = tastatur.nextInt();
-//		    switch (eingabeFahrkarten) {
-//		    case 1: p1 = einzelfahrschein;
-//		    break;
-//		    case 2: p1 = tageskarte;
-//		    break;
-//		    case 3: p1 = kleingruppe;
-//		    break;
-//		    case 9: p1 = 0.0;
-//		    break;
-//		    default: System.out.println("Error. Mit Ihrer Eingabe kann ich nichts anfangen.\n \n"
-//		    		+ "----------------------------------------------");
-//		    		p1 = 0.0;	
-//		    }
-//		} while (p1 == 0.0);
-//	    
-//	    while (p2 > 10 || p2 <= 0) {
-//	    	System.out.print("Sie können sich nur maximal 10 Karten kaufen. "
-//	    			+ "Eine Karte ist Minimum! \n\nVerschwende nicht meine Zeit");
-//	    	for (int i = 0; i < 20; i++)
-//		       {
-//		          System.out.print(".");
-//		          try {Thread.sleep(200);
-//				} catch (InterruptedException e) {
-//					e.printStackTrace();
-//				}
-//		       }
-//		       System.out.println("\n\n");
-//	    	System.out.print("Wieviel Fahrkarten wollen Sie?");
-//	    	p2 = tastatur.nextByte();
-//	    }
-
 	    double gesamtKosten = neukosten;
     	return gesamtKosten;
 	}
