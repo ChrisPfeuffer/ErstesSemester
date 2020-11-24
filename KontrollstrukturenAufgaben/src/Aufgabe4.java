@@ -15,7 +15,7 @@ public class Aufgabe4 {
 			System.out.printf("Die Bestellung kostet %.2f€", rechnungsbetrag);
 		}
 		else if(count > 0 && count < 10) {
-			double rechnungsbetrag = (count * cost) * 1.16 + 10; //Lieferpauschale von 10€
+			double rechnungsbetrag = (count * cost + 10) * 1.16; //Lieferpauschale von 10€
 			System.out.printf("Die Bestellung kostet %.2f€", rechnungsbetrag);	
 		}
 		else {
