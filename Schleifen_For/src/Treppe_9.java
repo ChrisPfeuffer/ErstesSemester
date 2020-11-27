@@ -9,7 +9,7 @@ public class Treppe_9 {
 	    {
 	    	System.out.print("Wie hoch soll die Treppe sein?: ");
 	        h = myScanner.nextInt();
-	        System.out.print("Wie breit soll die Stufe sein?: ");
+	        System.out.print("Wie breit sollen die Stufen sein?: ");
 	        m = myScanner.nextInt();
 	    }
 	    while (h < 1);
