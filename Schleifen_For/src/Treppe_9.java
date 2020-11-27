@@ -11,8 +11,8 @@ public class Treppe_9 {
 	        h = myScanner.nextInt();
 	        System.out.print("Wie breit sollen die Stufen sein?: ");
 	        m = myScanner.nextInt();
-	    }
-	    while (h < 1);
+	    } while (h < 1);
+	    
 	    for (i = 0; i < h; i++)
 	    {
 	        //Leerstellen vor *
@@ -29,5 +29,4 @@ public class Treppe_9 {
 	        System.out.print("\n");
 	    }
 	}
-
 }
