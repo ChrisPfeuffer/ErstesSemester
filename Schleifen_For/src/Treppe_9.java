@@ -15,17 +15,17 @@ public class Treppe_9 {
 	    while (h < 1);
 	    for (i = 0; i < h; i++)
 	    {
-	        //Create space before #
+	        //Leerstellen vor *
 	        for (j = 0; j < h - i - 1; j++)
 	        {
 	        	System.out.print(" ".repeat(m));
 	        }    
-	        //Create # before spaces
+	        //* erstellen
 	        for (j = 0; j < i + 1; j++)
 	        {
 	        	System.out.print("*".repeat(m));
 	        }    
-	        //Make new line 
+	        //Neue Linie erstellen
 	        System.out.print("\n");
 	    }
 	}
