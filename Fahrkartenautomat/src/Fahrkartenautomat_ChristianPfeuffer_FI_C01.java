@@ -30,7 +30,12 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
 				System.out.print("Wie viele davon wollen Sie? ");
 				eingabeFahrkartenanzahl = tastatur.nextInt();
 				System.out.printf("\n");
-				neukosten = preisInEuro[eingabeFahrkarten] * eingabeFahrkartenanzahl;
+				if(eingabeFahrkartenanzahl < 11 && eingabeFahrkartenanzahl > 0) {
+					neukosten = preisInEuro[eingabeFahrkarten] * eingabeFahrkartenanzahl;
+				}
+				else {
+					neukosten = preisInEuro[eingabeFahrkarten] * 1;
+				}
 				
 				System.out.print("Wollen Sie noch andere Fahrkarten? (J/N)");
 				char andereFahrkarten = tastatur.next().toUpperCase().charAt(0);
@@ -160,7 +165,7 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
 	    	// Rückgeldberechnung und -Ausgabe
 	    	rueckgeldAusgeben(zuzahlendenBetrag, betragEinbezahlt);
 	    	
-	    	System.out.println("Guten Tag Werter Kunde. Ihre Bestellung bitte. \n");
+	    	System.out.println("Guten Tag werter Kunde. Ihre Bestellung bitte. \n");
 	    }
     }
 }
