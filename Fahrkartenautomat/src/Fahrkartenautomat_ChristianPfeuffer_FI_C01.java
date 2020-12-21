@@ -18,7 +18,7 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
 		do {
 			System.out.println("=====================================================");
 			for(int i = 0; i < bezeichnung.length; i++) {
-				System.out.printf("%-5d %-40s %.2f€\n", i + 1, bezeichnung[i], preisInEuro[i]);
+				System.out.printf("%-5d %-40s %5.2f€\n", i + 1, bezeichnung[i], preisInEuro[i]);
 			}
 			if(weiterEinkaufen == true) {
 				System.out.println("=====================================================");
