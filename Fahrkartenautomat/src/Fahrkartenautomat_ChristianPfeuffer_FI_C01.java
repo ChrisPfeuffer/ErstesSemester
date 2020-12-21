@@ -30,11 +30,13 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
 				System.out.print("Wie viele davon wollen Sie? ");
 				eingabeFahrkartenanzahl = tastatur.nextInt();
 				System.out.printf("\n");
+				
 				if(eingabeFahrkartenanzahl < 11 && eingabeFahrkartenanzahl > 0) {
 					neukosten = preisInEuro[eingabeFahrkarten] * eingabeFahrkartenanzahl;
 				}
 				else {
 					neukosten = preisInEuro[eingabeFahrkarten] * 1;
+					System.out.println("Sie haben mehr als 10 Karten bestellt. In diesem Fall erhalten Sie nur ein Ticket.\n");
 				}
 				
 				System.out.print("Wollen Sie noch andere Fahrkarten? (J/N)");
