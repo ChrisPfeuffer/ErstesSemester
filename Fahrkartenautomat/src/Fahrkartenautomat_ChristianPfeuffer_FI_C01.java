@@ -26,17 +26,20 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
 				
 				System.out.print("Welche Fahrkarte hätten Sie gerne? ");
 				eingabeFahrkarten = tastatur.nextByte();
-				eingabeFahrkarten -= 1;
+
 				System.out.print("Wie viele davon wollen Sie? ");
 				eingabeFahrkartenanzahl = tastatur.nextInt();
 				System.out.printf("\n");
 				
-				if(eingabeFahrkartenanzahl < 11 && eingabeFahrkartenanzahl > 0) {
+				if(eingabeFahrkartenanzahl < 11 && eingabeFahrkartenanzahl > 0 && eingabeFahrkarten > 0 && eingabeFahrkarten < 11) {
+					eingabeFahrkarten -= 1;
 					neukosten = preisInEuro[eingabeFahrkarten] * eingabeFahrkartenanzahl;
 				}
-				else {
+				else if (eingabeFahrkarten < 11 && eingabeFahrkarten > 0){
 					neukosten = preisInEuro[eingabeFahrkarten] * 1;
 					System.out.println("Sie haben mehr als 10 Karten bestellt. In diesem Fall erhalten Sie nur ein Ticket.\n");
+				} else {
+					System.out.println("Sie haben keine gültige Fahrkarte ausgewählt.");
 				}
 				
 				System.out.print("Wollen Sie noch andere Fahrkarten? (J/N)");
