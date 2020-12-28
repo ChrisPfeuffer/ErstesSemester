@@ -36,7 +36,7 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
 					neukosten = preisInEuro[eingabeFahrkarten] * eingabeFahrkartenanzahl;
 				}
 				else if (eingabeFahrkarten < 11 && eingabeFahrkarten > 0){
-					neukosten = preisInEuro[eingabeFahrkarten] * 1;
+					neukosten = preisInEuro[eingabeFahrkarten - 1] * 1;
 					System.out.println("Sie haben mehr als 10 Karten bestellt. In diesem Fall erhalten Sie nur ein Ticket.\n");
 				} else {
 					System.out.println("Sie haben keine gültige Fahrkarte ausgewählt.");
@@ -93,7 +93,7 @@ class Fahrkartenautomat_ChristianPfeuffer_FI_C01
     }
 	
 	public static void rueckgeldAusgeben(double gesamtKosten, double eingezahlt) {
-		double rueckgabebetrag = eingezahlt - gesamtKosten; //Math round soll helfen
+		double rueckgabebetrag = eingezahlt - gesamtKosten;
 		
 		if(rueckgabebetrag > 0.0)
 		{
